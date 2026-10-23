@@ -8,10 +8,20 @@
     </parent>
 
     <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
-    <packaging>eclipse-plugin</packaging>
+    <packaging>jar</packaging>
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <archive>
+                        <manifestFile>${project.basedir}/META-INF/MANIFEST.MF</manifestFile>
+                    </archive>
+                </configuration>
+            </plugin>
             <plugin>
                  <groupId>org.jacoco</groupId>
                       <artifactId>jacoco-maven-plugin</artifactId>
@@ -24,10 +34,6 @@
                         </execution>
                     </executions>
                 </plugin>
-            <plugin>
-                <groupId>org.eclipse.tycho</groupId>
-                <artifactId>tycho-maven-plugin</artifactId>
-            </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>templating-maven-plugin</artifactId>
@@ -69,9 +75,8 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.eclipse.tycho</groupId>
-                <artifactId>tycho-compiler-plugin</artifactId>
-                <version>${tycho.version}</version>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
                     <source>${mqttclient.java.version}</source>
                     <target>${mqttclient.java.version}</target>
