@@ -4,7 +4,7 @@
 	<groupId>org.eclipse.paho</groupId>
 	<artifactId>java-parent</artifactId>
 	<packaging>pom</packaging>
-	<version>1.2.6-quuppa.1</version>
+	<version>1.2.6-quuppa.2</version>
 	<!-- Use quuppa parent to deploy to internal repos.
 	can only successfully build with:
 	mvn -DskipTests -Dmaven.javadoc.skip=true install
