@@ -109,6 +109,11 @@ public class MqttClientException {
 	public static final short REASON_CODE_CLIENT_CLOSED = 32111;
 
 	/**
+	 * Unable to connect to the server through the configured HTTP proxy.
+	 */
+	public static final short REASON_CODE_HTTP_PROXY_CONNECT_ERROR = 32112;
+
+	/**
 	 * A request has been made to use a token that is already associated with
 	 * another action. If the action is complete the reset() can ve called on the
 	 * token to allow it to be reused.

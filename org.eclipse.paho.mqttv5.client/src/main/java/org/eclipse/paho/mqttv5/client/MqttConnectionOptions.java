@@ -115,6 +115,10 @@ public class MqttConnectionOptions {
 	private Properties sslClientProps = null; // SSL Client Properties
 	private HostnameVerifier sslHostnameVerifier = null; // SSL Hostname Verifier
 	private Map<String, String> customWebSocketHeaders;
+	private String httpProxyHost;
+	private int httpProxyPort;
+	private String httpProxyUser;
+	private String httpProxyPassword;
 
 	// Client Operation Parameters
 	private int executorServiceTimeout = 1; // How long to wait in seconds when terminating the executor service.
@@ -940,6 +944,56 @@ public class MqttConnectionOptions {
 
 	public Map<String, String> getCustomWebSocketHeaders() {
 		return customWebSocketHeaders;
+	}
+
+	/**
+	 * @return the HTTP proxy host, or null if no proxy is used
+	 */
+	public String getHttpProxyHost() {
+		return httpProxyHost;
+	}
+
+	/**
+	 * Sets the host of an HTTP proxy that supports the CONNECT method. If set
+	 * (together with a port &gt; 0), the connection to the broker is tunneled
+	 * through the proxy. Applies to tcp, ssl, ws and wss URIs.
+	 *
+	 * @param httpProxyHost
+	 *            the proxy host
+	 */
+	public void setHttpProxyHost(String httpProxyHost) {
+		this.httpProxyHost = httpProxyHost;
+	}
+
+	public int getHttpProxyPort() {
+		return httpProxyPort;
+	}
+
+	public void setHttpProxyPort(int httpProxyPort) {
+		this.httpProxyPort = httpProxyPort;
+	}
+
+	public String getHttpProxyUser() {
+		return httpProxyUser;
+	}
+
+	/**
+	 * Sets the user name for Basic proxy authentication. Used only if a password
+	 * is set as well.
+	 *
+	 * @param httpProxyUser
+	 *            the proxy user name
+	 */
+	public void setHttpProxyUser(String httpProxyUser) {
+		this.httpProxyUser = httpProxyUser;
+	}
+
+	public String getHttpProxyPassword() {
+		return httpProxyPassword;
+	}
+
+	public void setHttpProxyPassword(String httpProxyPassword) {
+		this.httpProxyPassword = httpProxyPassword;
 	}
 
 	public String toString() {

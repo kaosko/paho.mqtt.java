@@ -56,6 +56,8 @@ public class WebSocketNetworkModuleFactory implements NetworkModuleFactory {
 				clientId);
 		netModule.setConnectTimeout(options.getConnectionTimeout());
 		netModule.setCustomWebSocketHeaders(options.getCustomWebSocketHeaders());
+		netModule.configHttpProxy(options.getHttpProxyHost(), options.getHttpProxyPort(),
+				options.getHttpProxyUser(), options.getHttpProxyPassword());
 		return netModule;
 	}
 }

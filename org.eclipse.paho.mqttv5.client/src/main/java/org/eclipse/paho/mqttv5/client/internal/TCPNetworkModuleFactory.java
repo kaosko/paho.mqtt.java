@@ -59,6 +59,8 @@ public class TCPNetworkModuleFactory implements NetworkModuleFactory {
 		}
 		TCPNetworkModule networkModule = new TCPNetworkModule(factory, host, port, clientId);
 		networkModule.setConnectTimeout(options.getConnectionTimeout());
+		networkModule.configHttpProxy(options.getHttpProxyHost(), options.getHttpProxyPort(),
+				options.getHttpProxyUser(), options.getHttpProxyPassword());
 		return networkModule;
 	}
 }

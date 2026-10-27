@@ -70,6 +70,8 @@ public class WebSocketSecureNetworkModuleFactory implements NetworkModuleFactory
 		netModule.setSSLHostnameVerifier(options.getSSLHostnameVerifier());
 		netModule.setHttpsHostnameVerificationEnabled(options.isHttpsHostnameVerificationEnabled());
 		netModule.setCustomWebSocketHeaders(options.getCustomWebSocketHeaders());
+		netModule.configHttpProxy(options.getHttpProxyHost(), options.getHttpProxyPort(),
+				options.getHttpProxyUser(), options.getHttpProxyPassword());
 		// Ciphers suites need to be set, if they are available
 		if (wSSFactoryFactory != null) {
 			String[] enabledCiphers = wSSFactoryFactory.getEnabledCipherSuites(null);
